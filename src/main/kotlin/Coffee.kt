@@ -1,0 +1,37 @@
+abstract class Coffee() {
+    open var water: Int = 200
+    open var coffee: Int = 20
+    open var milk: Int = 0
+    open var sugar: Int = 0
+    open var ice: Int = 0
+    open var whisky: Int = 0
+    open var cups: Int = 1
+
+    open fun makeCoffee() {
+        conWater = (conWater - water)
+        conCoffee = (conCoffee - coffee)
+        conMilk = (conMilk - milk)
+        conSugar = (conSugar - sugar)
+        conIce = (conIce - ice)
+        conWhisky = (conWhisky - whisky)
+        conCups = (conCups - cups)
+        println(
+            """Ваш кофе готов!
+В контейнере осталось:
+воды - $conWater
+кофе - $conCoffee
+молока - $conMilk
+сахара - $conSugar
+льда - $conIce
+виски - $conWhisky
+стаканчиков - $conCups
+**********************
+Ещё кофе? Y/N
+""".trimMargin()
+        )
+
+        var more = readLine()
+        if (more == "y" || more == "Y") return run()
+
+    }
+}
