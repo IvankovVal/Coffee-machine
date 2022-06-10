@@ -6,8 +6,10 @@ abstract class Coffee() {
     open var ice: Int = 0
     open var whisky: Int = 0
     open var cups: Int = 1
+    open var counter: Int = 1
 
     open fun makeCoffee() {
+        counter = (counter + 1)
         conWater = (conWater - water)
         conCoffee = (conCoffee - coffee)
         conMilk = (conMilk - milk)
@@ -25,11 +27,14 @@ abstract class Coffee() {
 льда - $conIce
 виски - $conWhisky
 стаканчиков - $conCups
+
 **********************
 Ещё кофе? Y/N
 """.trimMargin()
         )
-
+        if (conCups % 5 == 0) {
+            println("Очистка кофе-машины")
+        }
         var more = readLine()
         if (more == "y" || more == "Y") return run()
 
