@@ -1,4 +1,24 @@
-fun run() {
+fun choiceInContainer () {
+    println("Продолжить обслуживание<S> Приготовить кофе <C> Выйти <Q> ")
+    val choiceInContainer = readLine()
+    when (choiceInContainer){
+        "s", "S" -> addContainer ()
+        "c", "C" -> run()
+        "q", "Q" -> println("Кофе-машина выключена")
+    }
+}
+fun printContainer (){ //Печать содержимого контейнера
+    println("""
+        $conWater
+        $conCoffee
+        $conMilk
+        $conSugar
+        $conIce
+        $conWhisky
+        $conCups
+    """.trimIndent())
+}
+fun run() { //Приготовление кофе
 
     println(
         """Выберете напиток

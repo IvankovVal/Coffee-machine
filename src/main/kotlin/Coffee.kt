@@ -29,14 +29,18 @@ abstract class Coffee() {
 стаканчиков - $conCups
 
 **********************
-Ещё кофе? Y/N
+Ещё кофе <C> Сервис <S> Выключить <Q>
 """.trimMargin()
         )
         if (conCups % 5 == 0) {
             println("Очистка кофе-машины")
         }
         var more = readLine()
-        if (more == "y" || more == "Y") return run()
+        when (more ) {
+            "c", "C" -> run()
+            "s", "S" -> addContainer ()
+            "q", "Q" -> println("Кофе-машина выключена")
+        }
 
     }
 }
