@@ -26,6 +26,7 @@ fun addContainer (){
         Добавить виски - <p> Текущее содержание - $conWhisky
         Добавить стаканчиков - <t> Текущее содержание - $conCups
     """.trimMargin())
+    var c: Coffemachine = Coffemachine()
     var serv = readLine()
     when (serv){
         "w"->{
@@ -35,10 +36,11 @@ fun addContainer (){
             if (conWater > 10000) {
                 conWater = (conWater - add)
                 println("Слишком много воды. До максимума введите:" + (10000 - conWater))
-                choiceInContainer ()
+
+                c.choiceInContainer()
             }
-            printContainer ()
-            choiceInContainer ()
+            c.printContainer ()
+            c.choiceInContainer ()
     }
     "c"->{
         println("Введите необходимое количество кофе Для пополнения до максимума введите " + (1000 - conCoffee))
@@ -48,8 +50,8 @@ fun addContainer (){
             conCoffee = (conCoffee - add)
             println("Слишком много кофе. До максимума введите:" + (1000 - conCoffee))
         conCoffee = (conCoffee + add)
-        printContainer ()
-        choiceInContainer ()
+        c.printContainer ()
+        c.choiceInContainer ()
     }}
     "m"->{
         println("Введите необходимое количество молока. Для пополнения до максимума введите " + (1000 - conMilk))
@@ -58,10 +60,10 @@ fun addContainer (){
         if (conMilk > 1000) {
             conMilk = (conMilk - add)
             println("Слишком много молока. До максимума введите:" + (1000 - conMilk))
-            choiceInContainer ()
+            c.choiceInContainer ()
         }
-        printContainer ()
-        choiceInContainer ()
+        c.printContainer ()
+        c.choiceInContainer ()
     }
     "s"->{
         println("Введите необходимое количество сахара. Для пополнения до максимума введите " + (1000 - conSugar))
@@ -70,10 +72,10 @@ fun addContainer (){
         if (conSugar > 1000) {
             conSugar = (conSugar - add)
             println("Слишком много сахара. До максимума введите:" + (1000 - conSugar))
-            choiceInContainer ()
+            c.choiceInContainer ()
         }
-        printContainer ()
-        choiceInContainer ()
+        c.printContainer ()
+        c.choiceInContainer ()
     }
     "i"->{
         println("Введите необходимое количество льда. Для пополнения до максимума введите " + (100 - conIce))
@@ -82,10 +84,10 @@ fun addContainer (){
         if (conIce > 1000) {
             conIce = (conIce - add)
             println("Слишком много льда. До максимума введите:" + (100 - conIce))
-            choiceInContainer ()
+            c.choiceInContainer ()
         }
-        printContainer ()
-        choiceInContainer ()
+        c.printContainer ()
+        c.choiceInContainer ()
     }
     "p"->{
         println("Введите необходимое количество виски. Для пополнения до максимума введите " + (1000 - conWhisky))
@@ -94,10 +96,10 @@ fun addContainer (){
         if (conWhisky > 1000) {
             conWhisky = (conWhisky - add)
             println("Слишком много виски. До максимума введите:" + (1000 - conWhisky))
-            choiceInContainer ()
+            c.choiceInContainer ()
         }
-        printContainer ()
-        choiceInContainer ()
+        c.printContainer ()
+        c.choiceInContainer ()
     }
     "t"->{
         println("Введите необходимое количество стаканчиков. Для пополнения до максимума введите " + (100 - conCups))
@@ -106,10 +108,10 @@ fun addContainer (){
         if (conCups > 100) {
             conCups = (conCups - add)
             println("Слишком много стаканчиков. До максимума введите:" + (100 - conCups))
-            choiceInContainer ()
+            c.choiceInContainer ()
         }
-        printContainer ()
-        choiceInContainer ()
+        c.printContainer ()
+        c.choiceInContainer ()
     }
         else -> {println("Ошибка ввода")
             return addContainer()}

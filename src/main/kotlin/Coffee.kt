@@ -1,21 +1,21 @@
 abstract class Coffee() {
-    open var water: Int = 200
-    open var coffee: Int = 20
-    open var milk: Int = 0
-    open var sugar: Int = 0
-    open var ice: Int = 0
-    open var whisky: Int = 0
-    open var cups: Int = 1
-    open var counter: Int = 1
+    abstract var water: Int
+    abstract var coffee: Int
+    abstract var milk: Int
+    abstract var sugar: Int
+    abstract var ice: Int
+    abstract var whisky: Int
+    abstract var cups: Int
+
 
     open fun makeCoffee() {
-        conWater = (conWater - water)
-        conCoffee = (conCoffee - coffee)
-        conMilk = (conMilk - milk)
-        conSugar = (conSugar - sugar)
-        conIce = (conIce - ice)
-        conWhisky = (conWhisky - whisky)
-        conCups = (conCups - cups)
+        conWater -= water
+        conCoffee -= coffee
+        conMilk -= milk
+        conSugar -= sugar
+        conIce -= ice
+        conWhisky -= whisky
+        conCups -= cups
         println(
             """Ваш кофе готов!
 В контейнере осталось:
@@ -35,10 +35,15 @@ abstract class Coffee() {
             println("Очистка кофе-машины")
         }
         var more = readLine()
-        when (more ) {
-            "c", "C" -> run()
-            "s", "S" -> addContainer ()
-            "q", "Q" -> {println("Кофе-машина выключена")}
+        when (more) {
+            "c", "C" -> {
+                var b: Coffemachine = Coffemachine()
+                b.run()
+            }
+            "s", "S" -> addContainer()
+            "q", "Q" -> {
+                println("Кофе-машина выключена")
+            }
         }
 
     }

@@ -1,5 +1,5 @@
 class Americana: Coffee (){
-    override var water = 200
+    override var water: Int = 200
     override var coffee: Int = 20
     override var milk: Int = 0
     override var sugar: Int = 0
