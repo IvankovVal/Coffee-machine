@@ -9,7 +9,6 @@ abstract class Coffee() {
     open var counter: Int = 1
 
     open fun makeCoffee() {
-        counter = (counter + 1)
         conWater = (conWater - water)
         conCoffee = (conCoffee - coffee)
         conMilk = (conMilk - milk)
@@ -39,7 +38,7 @@ abstract class Coffee() {
         when (more ) {
             "c", "C" -> run()
             "s", "S" -> addContainer ()
-            "q", "Q" -> println("Кофе-машина выключена")
+            "q", "Q" -> {println("Кофе-машина выключена")}
         }
 
     }

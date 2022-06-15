@@ -18,18 +18,18 @@ fun addContainer (){
     var addCups: Int
 
     println("""Добавить ингридиенты
-        Добавить воды - <w>
-        Добавить кофе - <c>
-        Добавить молоко - <m>
-        Добавить сахар - <s>
-        Добавить льда - <i>
-        Добавить виски - <p>
-        Добавить стаканчиков - <t>
+        Добавить воды - <w>. Текущее содержание - $conWater
+        Добавить кофе - <c> Текущее содержание - $conCoffee
+        Добавить молоко - <m> Текущее содержание - $conMilk
+        Добавить сахар - <s> Текущее содержание - $conSugar
+        Добавить льда - <i> Текущее содержание - $conIce
+        Добавить виски - <p> Текущее содержание - $conWhisky
+        Добавить стаканчиков - <t> Текущее содержание - $conCups
     """.trimMargin())
     var serv = readLine()
     when (serv){
         "w"->{
-    println("Введите необходимое количество воды")
+    println("Введите необходимое количество воды. Для пополнения до максимума введите " + (10000 - conWater))
     val add = readLine()?.toInt()
     conWater = (conWater + add!!)
             if (conWater > 10000) {
@@ -41,7 +41,7 @@ fun addContainer (){
             choiceInContainer ()
     }
     "c"->{
-        println("Введите необходимое количество кофе")
+        println("Введите необходимое количество кофе Для пополнения до максимума введите " + (1000 - conCoffee))
         val add = readLine()?.toInt()
         conCoffee = (conCoffee + add!!)
         if (conCoffee > 1000) {
@@ -52,7 +52,7 @@ fun addContainer (){
         choiceInContainer ()
     }}
     "m"->{
-        println("Введите необходимое количество молока")
+        println("Введите необходимое количество молока. Для пополнения до максимума введите " + (1000 - conMilk))
         val add = readLine()?.toInt()
         conMilk = (conMilk + add!!)
         if (conMilk > 1000) {
@@ -64,7 +64,7 @@ fun addContainer (){
         choiceInContainer ()
     }
     "s"->{
-        println("Введите необходимое количество сахара")
+        println("Введите необходимое количество сахара. Для пополнения до максимума введите " + (1000 - conSugar))
         val add = readLine()?.toInt()
         conSugar = (conSugar + add!!)
         if (conSugar > 1000) {
@@ -76,7 +76,7 @@ fun addContainer (){
         choiceInContainer ()
     }
     "i"->{
-        println("Введите необходимое количество льда")
+        println("Введите необходимое количество льда. Для пополнения до максимума введите " + (100 - conIce))
         val add = readLine()?.toInt()
         conIce = (conIce + add!!)
         if (conIce > 1000) {
@@ -88,7 +88,7 @@ fun addContainer (){
         choiceInContainer ()
     }
     "p"->{
-        println("Введите необходимое количество виски")
+        println("Введите необходимое количество виски. Для пополнения до максимума введите " + (1000 - conWhisky))
         val add = readLine()?.toInt()
         conWhisky = (conWhisky + add!!)
         if (conWhisky > 1000) {
@@ -100,7 +100,7 @@ fun addContainer (){
         choiceInContainer ()
     }
     "t"->{
-        println("Введите необходимое количество стаканчиков")
+        println("Введите необходимое количество стаканчиков. Для пополнения до максимума введите " + (100 - conCups))
         val add = readLine()?.toInt()
         conCups = (conCups + add!!)
         if (conCups > 100) {

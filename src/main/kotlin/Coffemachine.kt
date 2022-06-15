@@ -5,8 +5,8 @@ fun choiceInContainer () {
         "s", "S" -> addContainer ()
         "c", "C" -> run()
         "q", "Q" -> println("Кофе-машина выключена")
-    }
-}
+    } }
+
 fun printContainer (){ //Печать содержимого контейнера
     println("""
         $conWater
