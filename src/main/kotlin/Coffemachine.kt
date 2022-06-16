@@ -1,43 +1,16 @@
-open class Coffemachine() {
-        fun bt() {
+class Coffemachine {
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    fun bt() {
         println("Включить кофе-машину? Y/N?")
-        var btOn = readLine()
+        val btOn = readLine()
         if (btOn == "Y" || btOn == "y" || btOn == "н" || btOn == "Н") {
             println("Приготовление кофе/Сервис<C/S>")
             val mod = readLine()
             when (mod) {
-                "c", "C", "С", "с" -> run()
-                "s", "S", "ы", "Ы" -> addContainer()
-
-            }
-        }
-    }
-
-    fun choiceInContainer() {
-        println("Продолжить обслуживание<S> Приготовить кофе <C> Выйти <Q> ")
-        val choiceInContainer = readLine()
-        when (choiceInContainer) {
-            "s", "S" -> addContainer()
-            "c", "C" -> run()
-            "q", "Q" -> println("Кофе-машина выключена")
-        }
-    }
-
-    fun printContainer() { //Печать содержимого контейнера
-        println(
-            """
-        $conWater
-        $conCoffee
-        $conMilk
-        $conSugar
-        $conIce
-        $conWhisky
-        $conCups
-    """.trimIndent()
-        )
-    }
-
-    open fun run() { //Приготовление кофе
+                "c", "C", "С", "с" -> makecoffee()
+                "s", "S", "ы", "Ы" -> addContainer() }}}
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    fun makecoffee() { //Приготовление кофе
 
         println(
             """Выберете напиток
@@ -46,30 +19,114 @@ open class Coffemachine() {
 Для фраппе введите - <f>
 Для кофе по-ирландски введите - <i>
 Для кофе по своему рецепту введите <r>
-""".trimMargin()
-        )
+""".trimMargin())
 
-        val choice = readLine()
-        when (choice) {
-            "a", "A", "ф", "Ф" -> {
-                var cofe: Americana = Americana()
-                cofe.makeCoffee()
-            }
-            "c", "C", "с", "С" -> {
-                var cofe: Cappuccino = Cappuccino()
-                cofe.makeCoffee()
-            }
-            "f", "F", "а", "А" -> {
-                var cofe: Frappe = Frappe()
-                cofe.makeCoffee()
-            }
-            "i", "I", "ш", "Ш" -> {
-                var cofe: Irish = Irish()
-                cofe.makeCoffee()
-            }
-            "r", "R", "к", "К" -> randomCoffee()
+    val choice = readLine()
+when (choice) {
+    "a", "A", "ф", "Ф" -> {
+        val cofe: Americana = Americana()
 
-        }
+        conWater -= cofe.water
+        conCoffee -= cofe.coffee
+        conMilk -= cofe.milk
+        conSugar -= cofe.sugar
+        conIce -= cofe.ice
+        conWhisky -= cofe.whisky
+        conCups -= cofe.cups
+        println("Ваш кофе готов")
+        clean ()
+        printContainer()
+        navigation ()
+    }
+    "c", "C", "с", "С" -> {
+        val cofe: Cappuccino = Cappuccino()
+        conWater -= cofe.water
+        conCoffee -= cofe.coffee
+        conMilk -= cofe.milk
+        conSugar -= cofe.sugar
+        conIce -= cofe.ice
+        conWhisky -= cofe.whisky
+        conCups -= cofe.cups
+        println("Ваш кофе готов")
+        clean ()
+        printContainer()
+        navigation ()
+    }
+    "f", "F", "а", "А" -> {
+        val cofe: Frappe = Frappe()
+        conWater -= cofe.water
+        conCoffee -= cofe.coffee
+        conMilk -= cofe.milk
+        conSugar -= cofe.sugar
+        conIce -= cofe.ice
+        conWhisky -= cofe.whisky
+        conCups -= cofe.cups
+        println("Ваш кофе готов")
+        clean ()
+        printContainer()
+        navigation ()
+    }
+    "i", "I", "ш", "Ш" -> {
+        val cofe: Irish = Irish()
+        conWater -= cofe.water
+        conCoffee -= cofe.coffee
+        conMilk -= cofe.milk
+        conSugar -= cofe.sugar
+        conIce -= cofe.ice
+        conWhisky -= cofe.whisky
+        conCups -= cofe.cups
+        println("Ваш кофе готов")
+        clean ()
+        printContainer()
+        navigation ()
+    }
+    "r", "R", "к", "К" -> {
+        craftCoffee()
+
+    }}}
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+    fun choiceInContainer() {
+        println("Продолжить обслуживание<S> Приготовить кофе <C> Выйти <Q> ")
+        val choiceInContainer = readLine()
+        when (choiceInContainer) {
+            "s", "S" -> addContainer()
+            "c", "C" -> makecoffee()
+            "q", "Q" -> println("Кофе-машина выключена") }}
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    fun printContainer() { //Печать содержимого контейнера
+        println(
+            """
+                В контейнере осталось:
+        воды - $conWater
+        кофе - $conCoffee
+        молока - $conMilk
+        сахара - $conSugar
+        льда - $conIce
+        виски - $conWhisky
+        стаканчиков - $conCups
+    """.trimIndent()
+        )}
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+    fun clean (){
+    if (conCups % 5 == 0) {println("Очистка кофе-машины")}}
+     fun navigation (){
+         println("Ещё кофе<C> Сервис<S> Выключить кофе-машину<Q>")
+         val nav = readLine()
+         when (nav){
+             "c", "C", "с","С" -> return makecoffee()
+             "s", "S", "Ы", "ы" -> return addContainer()
+             "q", "Q", "й", "Й" -> println("Кофе-машина выключена")
+         }
+     }
+
+
 
     }
-}
+
+
