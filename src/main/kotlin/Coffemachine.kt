@@ -2,13 +2,19 @@ class Coffemachine {
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     fun bt() {
         println("Включить кофе-машину? Y/N?")
-        val btOn = readLine()
-        if (btOn == "Y" || btOn == "y" || btOn == "н" || btOn == "Н") {
+        val btOn = readLine()?.lowercase()
+        if (btOn == "y" || btOn == "н" ) {
             println("Приготовление кофе/Сервис<C/S>")
             val mod = readLine()
             when (mod) {
-                "c", "C", "С", "с" -> makecoffee()
-                "s", "S", "ы", "Ы" -> addContainer() }}}
+                "c", "с" -> makecoffee()
+                "s", "ы" -> addContainer()
+                else -> {
+                    println("Ошибка ввода")
+                    return navigation()
+
+                }
+            }}}
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     fun makecoffee() { //Приготовление кофе
 
@@ -21,9 +27,9 @@ class Coffemachine {
 Для кофе по своему рецепту введите <r>
 """.trimMargin())
 
-    val choice = readLine()
+    val choice = readLine()?.lowercase()
 when (choice) {
-    "a", "A", "ф", "Ф" -> {
+    "a", "ф" -> {
         val cofe: Americana = Americana()
 
         conWater -= cofe.water
@@ -38,7 +44,7 @@ when (choice) {
         printContainer()
         navigation ()
     }
-    "c", "C", "с", "С" -> {
+    "c", "с" -> {
         val cofe: Cappuccino = Cappuccino()
         conWater -= cofe.water
         conCoffee -= cofe.coffee
@@ -52,7 +58,7 @@ when (choice) {
         printContainer()
         navigation ()
     }
-    "f", "F", "а", "А" -> {
+    "f", "а" -> {
         val cofe: Frappe = Frappe()
         conWater -= cofe.water
         conCoffee -= cofe.coffee
@@ -66,7 +72,7 @@ when (choice) {
         printContainer()
         navigation ()
     }
-    "i", "I", "ш", "Ш" -> {
+    "i", "ш" -> {
         val cofe: Irish = Irish()
         conWater -= cofe.water
         conCoffee -= cofe.coffee
@@ -80,7 +86,7 @@ when (choice) {
         printContainer()
         navigation ()
     }
-    "r", "R", "к", "К" -> {
+    "r", "к" -> {
         craftCoffee()
 
     }}}
@@ -116,12 +122,16 @@ when (choice) {
     fun clean (){
     if (conCups % 5 == 0) {println("Очистка кофе-машины")}}
      fun navigation (){
-         println("Ещё кофе<C> Сервис<S> Выключить кофе-машину<Q>")
-         val nav = readLine()
+         println("Приготовить кофе<C> Сервис<S> Выключить кофе-машину<Q>")
+         val nav = readLine()?.lowercase()
          when (nav){
-             "c", "C", "с","С" -> return makecoffee()
-             "s", "S", "Ы", "ы" -> return addContainer()
-             "q", "Q", "й", "Й" -> println("Кофе-машина выключена")
+             "c", "с" -> return makecoffee()
+             "s", "ы" -> return addContainer()
+             "q", "й" -> println("Кофе-машина выключена")
+             else -> {
+                 println("Ошибка ввода попробуйте ещэ раз")
+                 return navigation ()
+             }
          }
      }
 

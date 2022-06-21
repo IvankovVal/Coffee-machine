@@ -44,14 +44,14 @@ fun craftCoffee() {
 """.trimMargin()
             )
 
-            var more = readLine()
+            var more = readLine()?.lowercase()
             when (more) {
                 "c", "C" -> {
                     var b: Coffemachine = Coffemachine()
                     b.makecoffee()
                 }
-                "s", "S" -> addContainer()
-                "q", "Q" -> {
+                "s" -> addContainer()
+                "q" -> {
                     println("Кофе-машина выключена")
                 }
             }
