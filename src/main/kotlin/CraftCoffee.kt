@@ -12,13 +12,16 @@ fun craftCoffee() {
     println("Введите колличество виски")
     var whisky: Int = readLine()!!.toInt()
     var cups: Int = 1
-    val fullcup: Int = (water + coffee + milk + sugar + ice + whisky)
-    when {
-        fullcup > 245 -> {
-            println("Стакан перельётся. Добавьте ингридиентов в меньшем количестве для стакана 250 грамм")
+    val fullCup: Int = (water + coffee + milk + sugar + ice + whisky)
+    if (water < 0 || coffee < 0 || milk < 0 || sugar < 0 || ice < 0 || whisky < 0 )  {
+        println("Ошибка ввода")
+        return craftCoffee()
+    }
+    else if (fullCup > 245) {
+                   println("Стакан перельётся. Добавьте ингридиентов в меньшем количестве для стакана 250 грамм")
             return craftCoffee()
         }
-        fullcup <= 245 -> {
+        else  {
             conWater -= water
             conCoffee -= coffee
             conMilk -= milk
@@ -44,10 +47,10 @@ fun craftCoffee() {
 """.trimMargin()
             )
 
-            var more = readLine()?.lowercase()
+            val more = readLine()?.lowercase()
             when (more) {
                 "c", "C" -> {
-                    var b: Coffemachine = Coffemachine()
+                    val b: Coffemachine = Coffemachine()
                     b.makecoffee()
                 }
                 "s" -> addContainer()
@@ -56,4 +59,4 @@ fun craftCoffee() {
                 }
             }
         }
-    }}
+    }
