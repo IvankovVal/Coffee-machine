@@ -7,5 +7,7 @@ class Irish: Coffee () {
     override var whisky: Int = 50
     override var cups: Int = 1
 
+    override fun takeIngredient() {
+        TODO("Not yet implemented")
 
-}
+}}

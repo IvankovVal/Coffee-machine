@@ -6,6 +6,6 @@ abstract class Coffee() {
     abstract var ice: Int
     abstract var whisky: Int
     abstract var cups: Int
-
+  abstract fun takeIngredient ()
 
 }
